@@ -420,6 +420,7 @@ html {
     background-color: var(--color-light);
     border-top-right-radius: 10rem;
     margin-right: 4.25rem;
+    padding-bottom: 8rem;
 }
 
 .about-section-first-container {
@@ -578,11 +579,11 @@ html {
 }
 
 .slider-btn-left {
-    left: 100px;
+    left: 80px;
 }
 
 .slider-btn-right {
-    right: 100px;
+    right: 80px;
 }
 
 .slider-btn:hover {
@@ -591,7 +592,7 @@ html {
 
 .about-section-slider {
     width: 900px;
-    height: 420px;
+    height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -618,7 +619,7 @@ html {
 }
 
 .slider-img.main {
-    width: 600px;
+    width: 650px;
     z-index: 5;
     left: 50%;
     transform: translateX(-50%) scale(1);
@@ -670,7 +671,7 @@ html {
 }
 
 .about-section-commitment>h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--color-dark-green);
     margin-bottom: 1rem;
     font-weight: 700;
@@ -679,7 +680,389 @@ html {
 .about-section-commitment>p {
     line-height: 1.6;
     color: #333;
+    font-size: 1.25rem;
+}
+
+.about-edu-enroll-container {
+    position: relative;
+}
+
+.edu-program-section {
+    background-color: var(--color-dark-green);
+    border-top-left-radius: 10rem;
+    margin-left: 8rem;
+    padding-bottom: 14rem;
+    position: relative;
+    top: -6.25rem;
+}
+
+.edu-program-section h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 5rem;
+}
+
+.edu-program-list {
+    display: flex;
+    margin-left: 5rem;
+    gap: 0.75rem;
+}
+
+.edu-program-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 2rem;
+    border-top-right-radius: 4rem;
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 2rem;
+    background-color: var(--color-beige);
+    width: 380px;
+    position: relative;
+    transition: height 0.3s ease; /* Hiệu ứng mượt khi đổi chiều cao */
+}
+
+.edu-program-card:nth-child(1)::before,
+.edu-program-card:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -7%;
+    transform: translateY(-50%);
+
+    width: 30px;      
+    height: 60px;     
+
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+
+    z-index: 10;
+}
+
+.edu-program-card:nth-child(1)::before {
+    background: var(--color-secondary);
+}
+
+.edu-program-card:nth-child(2)::before {
+    background: var(--color-beige);
+}
+
+.edu-program-card:nth-child(1)::after,
+.edu-program-card:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 80px;
+    background: var(--color-dark-green);
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    z-index: 5;
+}
+
+.edu-program-card:first-child, .edu-program-card:last-child {
+    background-color: var(--color-secondary);
+}
+
+.edu-program-period {
+    font-size: 1.25rem;
+    color: var(--color-dark-green);
+}
+
+.edu-program-card>h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-dark-green);
+    margin-bottom: 1.25rem;
+}
+
+.edu-program-card>p {
     font-size: 1rem;
+    color: #333;
+}
+
+.edu-card-text-wrapper {
+    flex: 1; /* Chiếm hết khoảng trống còn lại để đẩy arrow xuống dưới */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.edu-card-text.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 9; /* Giới hạn 3 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1.25rem;
+}
+
+.edu-see-more-btn {
+    background: none;
+    border: none;
+    color: var(--color-dark-green);
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    margin-top: 0.5rem;
+    text-align: left;
+    font-size: 1rem;
+    width: fit-content;
+}
+
+/* Xoay mũi tên khi mở rộng */
+.edu-program-card-arrow i {
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.edu-program-card-arrow.expanded i {
+    transform: rotate(90deg); /* Xoay xuống dưới */
+}
+
+.edu-program-card-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-dark-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+}
+
+.edu-program-card-arrow i {
+    color: #fff;
+}
+
+.edu-circle-small-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 200px;
+    height: 200px;
+}
+
+.edu-quarter {
+    width: 100%;
+    height: 100%;
+}
+
+/* Top-left - bo góc trên trái (ra ngoài) */
+.edu-quarter-1 {
+    background-color: var(--color-blue-gray);
+    border-top-right-radius: 100%;
+}
+
+/* Top-right - bo góc trên phải (ra ngoài) */
+.edu-quarter-2 {
+    background-color: var(--color-secondary);
+    border-top-right-radius: 100%;
+}
+
+/* Bottom-left - bo góc dưới trái (ra ngoài) */
+.edu-quarter-3 {
+    background-color: var(--color-accent);
+    border-bottom-left-radius: 100%;
+}
+
+/* Bottom-right - bo góc dưới phải (ra ngoài) */
+.edu-quarter-4 {
+    background-color: var(--color-blue-gray);
+    border-top-right-radius: 100%;
+}
+
+.enroll-info-section {
+    padding: 5rem 0 0 41rem;
+    background-color: var(--color-primary);
+    margin-top: -7rem;
+}
+
+.enroll-info-text {
+    padding: 0 4rem 5rem 5rem;
+}
+
+.enroll-info-section h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.enroll-info-section p, .enroll-info-section i {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.enroll-info-section p {
+    margin-bottom: 1rem;
+}
+
+.enroll-img {
+    position: absolute;
+    top: calc(72% + 52px);
+    left: 0;
+    width: 722px;
+    height: 722px;
+    border-top-right-radius: 650px;
+    z-index: 10;
+}
+
+.pattern-container {
+    display: flex;
+    flex-wrap: wrap; /* Để các block nằm trên một hàng ngang */
+    gap: 0;
+    margin-left: 4rem;
+}
+
+.enroll-block {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 50px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    flex-shrink: 0; /* Không cho block bị co lại */
+}
+
+.enroll-quarter {
+    width: 100%;
+    height: 100%;
+}
+
+/* Các lớp hỗ trợ kích thước */
+.full-width { grid-column: span 2; }
+.full-height { grid-row: span 2; }
+
+/* Bo góc (Quarter circles) */
+.q-tl { border-top-left-radius: 100%; }
+.q-tr { border-top-right-radius: 100%; }
+.q-bl { border-bottom-left-radius: 100%; }
+.q-br { border-bottom-right-radius: 100%; }
+.q-none { border-radius: 0; }
+
+/* Hình bán nguyệt (Semi-circles) */
+.q-semi-bottom { border-radius: 0 0 100px 100px; }
+.q-semi-top { border-radius: 100px 100px 0 0; }
+
+
+
+/* --- PHẦN BỔ SUNG: HÌNH TAM GIÁC (TRIANGLES) --- */
+
+/* Tam giác vuông ở các góc */
+.t-tl { clip-path: polygon(0 0, 100% 0, 0 100%); } /* Góc trên trái */
+.t-tr { clip-path: polygon(0 0, 100% 0, 100% 100%); } /* Góc trên phải */
+.t-bl { clip-path: polygon(0 0, 0 100%, 100% 100%); } /* Góc dưới trái (Tam giác ngược) */
+.t-br { clip-path: polygon(100% 0, 100% 100%, 0 100%); } /* Góc dưới phải */
+
+/* Tam giác cân ngược lớn (dùng cho ô full-width) */
+.t-bc { clip-path: polygon(0 0, 100% 0, 50% 100%); }
+
+
+/* --- MÀU SẮC (GIỮ NGUYÊN) --- */
+.color-green { background-color: var(--color-dark-green); }
+.color-mint { background-color: var(--color-secondary); }
+.color-orange { background-color: var(--color-accent); }
+.color-blue { background-color: var(--color-blue-gray); }
+.color-beige { background-color: var(--color-beige); }
+.color-white { background-color: var(--color-light); }
+
+.enroll-form-footer-container {
+
+}
+
+.enroll-process-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.enroll-process-header {
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--color-dark-green);
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.enroll-process-list {
+    display: flex;
+    gap: 3rem;
+}
+
+.enroll-process-item {
+    padding: 2.5rem;
+    background-color: var(--color-dark-green);
+    width: 215px;
+    height: 215px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+}
+
+.enroll-process-item > span {
+    position: absolute;
+    /* Tùy chỉnh vị trí theo số lẻ/chẵn giống ảnh */
+    width: 60px;
+    height: 60px;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    font-size: 1.5rem;
+    z-index: -1; /* Nằm dưới text nhưng trên nền xanh */
+}
+
+/* Các bước 1 và 3: Tam giác ở góc dưới bên trái */
+.enroll-process-item:nth-child(1) > span,
+.enroll-process-item:nth-child(3) > span
+ {
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: var(--color-accent);
+    clip-path: polygon(0% 100%, 0% 0%, 100% 100%);
+    align-items: flex-end;
+    padding-left: 8px;
+    padding-bottom: 5px;
+}
+
+.enroll-process-item:nth-child(2) > span,
+.enroll-process-item:nth-child(4) > span
+ {
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: var(--color-accent);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    align-items: flex-end;
+    justify-content: flex-end; /* ← thêm cái này */
+    padding-right: 10px;        /* ← đổi padding-left → padding-right */
+    padding-bottom: 65px;
+}
+.enroll-process-item>p {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.enroll-icon {
+    width: 60px;
 }
 
 

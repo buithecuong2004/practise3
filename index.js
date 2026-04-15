@@ -181,3 +181,55 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
     updateCardHeights();
 });
+
+// Click xem thêm cho edu-program-section
+document.querySelectorAll('.edu-see-more-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        const currentCard = this.closest('.edu-program-card');
+        const currentText = currentCard.querySelector('.edu-card-text');
+        const currentArrow = currentCard.querySelector('.edu-program-card-arrow');
+        const isCollapsed = currentText.classList.contains('truncated');
+
+        if (isCollapsed) {
+            currentText.classList.remove('truncated');
+            currentArrow.classList.add('expanded');
+            this.textContent = 'thu gọn';
+        } else {
+            currentText.classList.add('truncated');
+            currentArrow.classList.remove('expanded');
+            this.textContent = 'xem thêm';
+        }
+
+        updateEduCardHeights();
+    });
+});
+
+// Hàm tính chiều cao tối đa cho edu-program-card để các thẻ luôn bằng nhau
+function updateEduCardHeights() {
+    const cards = document.querySelectorAll('.edu-program-card');
+    let maxHeight = 0;
+
+    // Reset height để tính toán chính xác scrollHeight
+    cards.forEach(card => {
+        card.style.height = 'auto';
+    });
+
+    // Tìm chiều cao lớn nhất trong số các card
+    cards.forEach(card => {
+        maxHeight = Math.max(maxHeight, card.scrollHeight);
+    });
+
+    // Áp dụng chiều cao lớn nhất cho tất cả các card
+    cards.forEach(card => {
+        card.style.height = maxHeight + 'px';
+    });
+}
+
+// Gọi hàm khi load trang và khi resize trình duyệt
+window.addEventListener('load', () => {
+    updateEduCardHeights();
+});
+
+window.addEventListener('resize', () => {
+    updateEduCardHeights();
+});
